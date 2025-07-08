@@ -45,7 +45,7 @@ def decrypt_with_aes(encrypted_data, password, salt):
 
 salt = b'Tandon' # Remember it should be a byte-object
 password = 'agm10111@nyu.edu'
-input_string = "AlwaysWatching"
+input_string = 'AlwaysWatching'
 
 encrypted_value = encrypt_with_aes(input_string, password, salt) # exfil function
 decrypted_value = decrypt_with_aes(encrypted_value, password, salt)  # exfil function
@@ -143,7 +143,7 @@ def run_dns_server():
 
             # Send the response back to the client using the `server_socket.sendto` method and put the response to_wire(), return to the addr you received from
             print("Responding to request:", qname)
-            server_socket.sendto(response, addr)
+            server_socket.sendto(response.to_wire(), addr)
         except KeyboardInterrupt:
             print('\nExiting...')
             server_socket.close()
